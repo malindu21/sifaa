@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "144417091682",
+    "firebase_url": "https://awesomepr-3e7b5-default-rtdb.firebaseio.com",
+    "project_id": "awesomepr-3e7b5",
+    "storage_bucket": "awesomepr-3e7b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144417091682:android:dead70091a52bf0d43a13b",
+        "android_client_info": {
+          "package_name": "com.pro.cafy_theofficecafeteria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144417091682-0jcfdfdvgaopik1buv3mrhif2lghmu6k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pro.cafy_theofficecafeteria",
+            "certificate_hash": "8df9a64542dc14e4d6628cc3b7f1f33039a3981a"
+          }
+        },
+        {
+          "client_id": "144417091682-4u4onimjnf9jaj6i4rh59n7r1fevsbeq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbZA6eT9OJZ3AuPD6wRsp0pCJrw6AF8-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144417091682-4u4onimjnf9jaj6i4rh59n7r1fevsbeq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

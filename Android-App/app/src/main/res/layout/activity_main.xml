@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/drawer_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity"
+    android:background="#E6F8F8F8">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+<!--        <SeekBar-->
+<!--            android:id="@+id/btntest2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
+
+
+        <!--Top Nav-->
+        <LinearLayout
+            android:id="@+id/main_activity_top_header_ll"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="8dp"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/nav_drawer_opener_iv"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_shop_2"
+                app:tint="@color/text_dark_color"
+                android:contentDescription="@string/menu_icon"
+                android:layout_marginEnd="20dp"
+                android:background="?android:attr/selectableItemBackground"/>
+
+            <TextView
+                android:id="@+id/top_wish_name_tv"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/hi"
+                android:textSize="22sp"
+                android:textColor="#1C213F"
+                android:fontFamily="@font/montserrat_semi_bold"/>
+
+            <ImageView
+                android:id="@+id/main_activity_search_iv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_search"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/menu_user_icon"
+                android:transitionName="userIconTransition"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/user_male"
+                android:elevation="2dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_activity_top_search_ll"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingVertical="8dp"
+            android:clipToPadding="false">
+
+            <SearchView
+                android:id="@+id/search_menu_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:queryHint="eg, Mango Shake, Orchid"
+                android:iconifiedByDefault="false"
+                app:voiceIcon="@drawable/ic_user"/>
+
+        </LinearLayout>
+
+        <!--Flower Shop Container-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingHorizontal="0dp"
+            android:paddingTop="30dp"
+            android:clipToPadding="false"
+            android:background="@drawable/top_curve_rectangle">
+
+            <!--Flower Categories-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/main_activity_flower_categories_cv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="8dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="10dp"
+                app:cardPreventCornerOverlap="true"
+                android:clipToPadding="false"
+                android:layout_marginTop="0dp"
+                android:layout_marginHorizontal="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/flower_categories"
+                        android:textSize="12sp"
+                        android:textColor="@color/flash_red_color"
+                        android:fontFamily="@font/montserrat_semi_bold"/>
+
+                    <!--Quick Item Selection-->
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/flower_categories_container_ll"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal"
+                                android:onClick="showTagItems"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="@dimen/category_item_image_width"
+                                    android:layout_height="@dimen/category_item_image_height"
+                                    android:src="@drawable/roses_flower" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:text="@string/roses_flower"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/montserrat_semi_bold"/>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal"
+                                android:onClick="showTagItems"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="@dimen/category_item_image_width"
+                                    android:layout_height="@dimen/category_item_image_height"
+                                    android:src="@drawable/sun_flower" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:text="@string/sunflower"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/montserrat_semi_bold"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal"
+                                android:onClick="showTagItems"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="@dimen/category_item_image_width"
+                                    android:layout_height="@dimen/category_item_image_height"
+                                    android:src="@drawable/orchid_flower" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:text="Orchids"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/montserrat_semi_bold"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal"
+                                android:onClick="showTagItems"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="@dimen/category_item_image_width"
+                                    android:layout_height="@dimen/category_item_image_height"
+                                    android:src="@drawable/lilies_flower" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:text="@string/lilies_flower"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/montserrat_semi_bold"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal"
+                                android:onClick="showTagItems"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="@dimen/category_item_image_width"
+                                    android:layout_height="@dimen/category_item_image_height"
+                                    android:src="@drawable/iris_flower" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:text="@string/iris_flower"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/montserrat_semi_bold"/>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal"
+                                android:onClick="showTagItems"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="@dimen/category_item_image_width"
+                                    android:layout_height="@dimen/category_item_image_height"
+                                    android:src="@drawable/poppy_flower" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:text="@string/poppy_flower"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/montserrat_semi_bold"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal"
+                                android:onClick="showTagItems"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="@dimen/category_item_image_width"
+                                    android:layout_height="@dimen/category_item_image_height"
+                                    android:src="@drawable/bougainvilla_flower" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:text="@string/bougainvilla_flower"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/montserrat_semi_bold"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal"
+                                android:onClick="showTagItems"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="@dimen/category_item_image_width"
+                                    android:layout_height="@dimen/category_item_image_height"
+                                    android:src="@drawable/tulip_flower" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:text="@string/tulip_flower"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/montserrat_semi_bold"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="20dp"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal"
+                                android:onClick="showTagItems"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:layout_width="@dimen/category_item_image_width"
+                                    android:layout_height="@dimen/category_item_image_height"
+                                    android:src="@drawable/carnation_flower" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:text="@string/carnation_flower"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/montserrat_semi_bold"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/main_activity_show_all_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/here_s_what_i_found_for_you"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:textSize="12sp"/>
+
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+
+
+                <!--                <androidx.appcompat.widget.SwitchCompat-->
+<!--                    android:id="@+id/show_all_items_switch"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/show_all"-->
+<!--                    android:fontFamily="@font/montserrat_regular"-->
+<!--                    android:scaleX="0.8"-->
+<!--                    android:scaleY="0.8"-->
+<!--                    android:minHeight="0dp"-->
+<!--                    android:checked="true" />-->
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:ignore="MissingConstraints">   <!--All Menu Items-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/items_recycler_view"
+                            tools:ignore="MissingConstraints" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/items_recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="330dp"
+                            android:clipToPadding="false"
+                            android:paddingBottom="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:listitem="@layout/sifaa_list_shop_item" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10sp"
+                        tools:ignore="SmallSp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/main_activity_fav"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:paddingStart="9dp"
+                            android:paddingEnd="5dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/tvRecMinn"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_semi_bold"
+                                android:text="@string/here_s_what_i_rec_for_you"
+                                android:textSize="15sp" />
+
+
+
+                        </LinearLayout>
+
+
+                        <Space
+                            android:id="@+id/space"
+                            android:layout_width="match_parent"
+                            android:layout_height="10sp"
+                            tools:ignore="SmallSp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/items_recycler_view3"
+                            android:layout_width="match_parent"
+                            android:layout_height="320dp"
+                            android:clipToPadding="false"
+                            android:paddingBottom="100dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+                            app:layout_constraintTop_toBottomOf="@+id/main_activity_fav"
+                            tools:listitem="@layout/sifaa_list_shop_item" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:id="@+id/main_activity_rec"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="9dp"
+                        android:paddingEnd="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvRecMin"
+
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_semi_bold"
+                            android:text="@string/here_s_what_i_rec_for_you"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+<!--                        <ProgressBar-->
+<!--                            android:id="@+id/progressBar2"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="@+id/items_recycler_view2" />-->
+
+                        <Button
+                            android:id="@+id/btnSurvey"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/take_survey"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/items_recycler_view2"
+                            android:layout_width="match_parent"
+                            android:layout_height="220dp"
+                            android:clipToPadding="false"
+                            android:paddingBottom="100dp"
+                            tools:listitem="@layout/sifaa_list_shop_item"
+                            tools:ignore="MissingConstraints" />
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/left_corner_curve"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:onClick="showBottomDialog">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginVertical="15dp"
+                        android:src="@drawable/ic_arrow_upward"/>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:itemIconTint="@color/flash_red_color"
+        app:itemTextColor="@color/text_light_color"
+        app:headerLayout="@layout/nav_header"
+        android:scrollbarThumbVertical="@android:color/transparent"
+        app:menu="@menu/nav_bar"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>
